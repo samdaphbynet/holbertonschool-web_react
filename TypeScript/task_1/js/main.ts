@@ -20,7 +20,7 @@ const teacher3: Teacher = {
     contract: false,
   };
   
-  console.log(teacher3);
+//   console.log(teacher3);
 
 // Create a Directors that extends Teacher interface
 interface Directors extends Teacher {
@@ -34,5 +34,22 @@ const director1: Directors = {
     location: 'London',
     fullTimeEmployee: true,
     numberOfReports: 17,
-  };
-  console.log(director1);
+};
+//   console.log(director1);
+
+function printTeacher(firstName: string, lastName: string): string {
+    // return `${firstName[0]}. ${lastName}`; firstName = "Jon", lastName = "Don" ==>  Output : J. Don
+    const firstLitter = firstName.charAt(0).toUpperCase();
+    const fullName = `${firstLitter}. ${lastName}`
+    return fullName // firstName = "Jon", lastName = "Don" ==>  Output : J. Don
+
+}
+
+// create interface for the function
+interface printTeacherFunction {
+    (firstName: string, lastName: string): string;
+}
+
+// Exemple usage
+const result: string = printTeacher("Jon", "Don")
+console.log(result);
