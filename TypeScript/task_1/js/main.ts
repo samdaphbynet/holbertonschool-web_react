@@ -21,3 +21,18 @@ const teacher3: Teacher = {
   };
   
   console.log(teacher3);
+
+// Create a Directors that extends Teacher interface
+interface Directors extends Teacher {
+    numberOfReports: number;
+}
+
+// Create a Finder interface
+const director1: Directors = {
+    firstName: 'John',
+    lastName: 'Doe',
+    location: 'London',
+    fullTimeEmployee: true,
+    numberOfReports: 17,
+  };
+  console.log(director1);
