@@ -15,5 +15,5 @@ $(document).ready(function() {
         $("#count").text(`${count} clicks on the button`)
     }, 500)
 
-    $("button").click(updateCounter);
+    $("button").on('click', (updateCounter));
 });
