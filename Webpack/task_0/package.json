@@ -1,17 +1,16 @@
-{
-  "name": "webpack",
-  "version": "1.0.0",
-  "description": "",
+{ 
+  "name": "task_0",
+  "version": "1.1.1",
+  "description": "first task",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode development"
+    "test": "echo \"no tests\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2"
+  },
   "dependencies": {
-    "jquery": "^3.7.1",
-    "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4"
+    "jquery": "^1.7.4"
   }
 }
