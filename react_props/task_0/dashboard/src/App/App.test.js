@@ -4,8 +4,8 @@ import App from './App';
 
 
 describe("<App />", () => {
-    it("App rendring without crashing", () => {
+    it("App renders without crashing", () => {
         const wrapper = shallow(<App />);
-        expect(wrapper.exists).teEqual(true);
+        expect(wrapper.exists).toEqual(true);
     });
 });
