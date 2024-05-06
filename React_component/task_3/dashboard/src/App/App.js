@@ -10,6 +10,7 @@ import "./App.css"
 
 import CourseList from "../CourseList/CourseList"
 import BodySection from '../BodySection/BodySection';
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
 
 class App extends Component {
     constructor(props) {
@@ -55,7 +56,23 @@ class App extends Component {
                     <Header />
                 </div>
                 
-                <div className="App-body">{!isLoggedIn ? <Login /> : <CourseList listCourses={listCourses}/>}</div>
+                <div className="App-body">
+                    {!isLoggedIn ? <BodySectionWithMarginBottom title="Log in to continue">
+                                            <Login />
+                                        </BodySectionWithMarginBottom> : 
+
+                                        <BodySectionWithMarginBottom title="Course list">
+                                            <CourseList listCourses={listCourses}/>
+                                        </BodySectionWithMarginBottom>
+                    }
+                
+                </div>
+
+                <div className="bodySection">
+                    <BodySection title="News from the School">
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat exercitationem necessitatibus voluptatum quae quos adipisci autem repellendus repudiandae dicta consectetur!</p>
+                    </BodySection>
+                </div>
     
                 <div className="App-footer">
                     <Footer />
