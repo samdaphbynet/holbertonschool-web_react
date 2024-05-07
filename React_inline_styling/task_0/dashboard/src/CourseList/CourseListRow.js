@@ -2,28 +2,43 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './CourseList.css'
 
+const rowStyle = {backgroundColor: "#f5f5f5ab"};
+const headerRowStyle = {backgroundColor: "#deb5b545"}
+
 const CourseListRow = ({ isHeader, textFirstCell, textSecondCell}) => {
-  if (isHeader) {
-    return (
-      <tr className='tr1'>
-        {textSecondCell === null ? (
-          <th className='th1' colSpan={2}>{textFirstCell}</th>
-        ) : (
-          <>
-            <th className='th2'>{textFirstCell}</th>
-            <th className='th3'>{textSecondCell}</th>
-          </>
-        )}
-      </tr>
-    );
-  } else {
-    return (
-      <tr className='tr2' style={{background: "#f5f5f5ab"}}>
-        <td className='td1'>{textFirstCell}</td>
-        <td className='td2'>{textSecondCell}</td>
-      </tr>
+  let element;
+
+  if (isHeader === true) {
+    //
+    if (textSecondCell === null) {
+      element = <th colSpan="2">{textFirstCell}</th>;
+    } else {
+      element = (
+        <>
+          <th>{textFirstCell}</th>
+          <th>{textSecondCell}</th>
+        </>
+      );
+    }
+    //
+  } else if (isHeader === false) {
+    element = (
+      <>
+        <td>{textFirstCell}</td>
+        <td>{textSecondCell}</td>
+      </>
     );
   }
+
+
+  let isHeaderStyle;
+
+  if (isHeader) {
+    isHeaderStyle = headerRowStyle;
+  }
+  else isHeaderStyle = rowStyle;
+
+  return <tr style={isHeaderStyle}>{element}</tr>;
 };
 
 CourseListRow.defaultProps = {
