@@ -9,9 +9,3 @@
 #courseList thead {
     height: 80px;
 }
-
-.th2, .th3 {
-    text-align: start;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-}
