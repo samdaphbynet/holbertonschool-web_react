@@ -1,22 +1,15 @@
-import { selectCourse, unselectCourse } from "./courseActionCreators";
+import { selectCourse, unSelectCourse } from "./courseActionCreators";
 import { SELECT_COURSE, UNSELECT_COURSE } from "./courseActionTypes";
 
-describe("courseActionCreators", () => {
-    it("should create an action to select a course", () => {
-        const index = 1;
-        const expectedAction = {
-            type: SELECT_COURSE,
-            index
-        };
-        expect(selectCourse(index)).toEqual(expectedAction);
-    });
+describe("action creators tests", function () {
+  it("selectCourse should return: { type: SELECT_COURSE, index: 1 }", function () {
+    const result = selectCourse(1);
 
-    it("should create an action to unselect a course", () => {
-        const index = 1;
-        const expectedAction = {
-            type: UNSELECT_COURSE,
-            index
-        };
-        expect(unselectCourse(index)).toEqual(expectedAction);
-    })
+    expect(result).toEqual({ type: SELECT_COURSE, index: 1 });
+  });
+  it("unSelectCourse should return: { type: UNSELECT_COURSE, index: 1 }", function () {
+    const result = unSelectCourse(1);
+
+    expect(result).toEqual({ type: UNSELECT_COURSE, index: 1 });
+  });
 });

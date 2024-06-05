@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import logo from "../assets/logo.jpg"
+import logo from "../assets/holberton_logo.jpg"
 import { StyleSheet, css } from "aphrodite";
 import { AppContext } from "../App/AppContext";
 

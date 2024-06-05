@@ -8,11 +8,11 @@ import Notifications from "../Notifications/Notifications";
 import { getLatestNotification } from '../utils/utils';
 import {user as defaultUser, AppContext} from './AppContext';
 
-import {connect} from "react-redux"
-
 import CourseList from "../CourseList/CourseList"
 import BodySection from '../BodySection/BodySection';
 import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
+
+import {connect} from "react-redux";
 
 
 class App extends Component {
@@ -166,9 +166,10 @@ const styles = StyleSheet.create({
     },
 })
 
-export const mapStateToProps = (state) => {
-    return { isLoggedIn: state.get("isUserLoggedIn") }
-  }
-  
-export default connect(mapStateToProps)(App)
+export const mapStateTopProps = (state) => {
+    return {
+        isLoggedIn: state.get("isUserLoggedIn"),
+    }
+}
 
+export default connect(mapStateTopProps)(App);

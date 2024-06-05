@@ -1,8 +1,7 @@
-import { toJS } from "immutable";
 import uiReducer, { initialState } from "./uiReducer";
 import { DISPLAY_NOTIFICATION_DRAWER } from "../actions/uiActionTypes";
 
-describe("reducer tests", function () {
+describe("uiReducer tests", function () {
   it("verifies the state returned by the uiReducer function equals the initial state when no action is passed", function () {
     const state = uiReducer(undefined, {});
 
