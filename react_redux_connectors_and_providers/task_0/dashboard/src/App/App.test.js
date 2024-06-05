@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import App from './App';
+import App, {mapStateToProps} from './App';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Login from '../Login/Login';
@@ -89,4 +89,14 @@ describe('<App />', () => {
         expect(wrapper.state('user').isLoggedIn).toBe(false);
         window.alert.mockRestore();
     });
+
+    it("mapStateToProps returns the right object from user Login", () => {
+        let state = fromJS({
+          isUserLoggedIn: true,
+        });
+    
+        const result = mapStateToProps(state);
+    
+        expect(result).toEqual({ isLoggedIn: true });
+      });
 });
