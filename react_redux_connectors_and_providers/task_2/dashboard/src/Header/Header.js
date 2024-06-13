@@ -1,28 +1,36 @@
-import React, { useContext } from 'react';
+import React, { Component } from 'react';
 import logo from "../assets/holberton_logo.jpg"
 import { StyleSheet, css } from "aphrodite";
-import { AppContext } from "../App/AppContext";
+import {logout} from "../actions/uiActionCreators";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import AppContext from "../App/AppContext"
 
-function Header() {
-    const context = useContext(AppContext);
-    return (
-        <>
-            <div className={css(styles.header)} id="Header">
-                <img className={css(styles.image)} src={logo} alt="" />
-                <h1 className={css(styles.h1)}>School dashboard</h1>
-            </div>
-
-            {context.user.isLoggedIn && (
-                <div id="logoutSection">
-                    <h1>Welcome {context.user.email} 
-                        <a onClick={context.logOut}>
-                            <em>(logOut)</em>
-                        </a>
-                    </h1>
+export class Header extends Component {
+    constructor(props) {
+        super(props)
+    }
+    render() {
+        const {user, logout} = this.props;
+        return (
+            <>
+                <div className={css(styles.header)} id="Header">
+                    <img className={css(styles.image)} src={logo} alt="" />
+                    <h1 className={css(styles.h1)}>School dashboard</h1>
                 </div>
-            )}
-        </>
-    )
+    
+                {user && (
+                    <div id="logoutSection">
+                        <h1>Welcome {user.email} 
+                            <a onClick={logout}>
+                                <em>(logOut)</em>
+                            </a>
+                        </h1>
+                    </div>
+                )}
+            </>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
@@ -42,4 +50,26 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Header
+Header.contextType = AppContext;
+
+Header.defaultProps = {
+    user: null,
+    logout: () => {},
+}
+
+Header.propTypes = {
+    user: PropTypes.object,
+    logout: PropTypes.func,
+}
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.get("user")
+    }
+}
+
+const mapDispatchToProps = {
+    logout,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

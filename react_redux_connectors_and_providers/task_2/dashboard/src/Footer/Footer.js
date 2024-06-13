@@ -32,7 +32,7 @@ Footer.defaultProps = {
     user: null
 }
 
-Footer.PropTypes = {
+Footer.propTypes = {
     user: PropTypes.object
 }
 
